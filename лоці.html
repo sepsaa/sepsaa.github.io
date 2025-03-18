@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szeretlek, cicám</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(45deg, #ffb6c1, #ffcba4);
+            animation: bgAnimation 6s infinite alternate;
+            overflow: hidden;
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes bgAnimation {
+            0% { background: linear-gradient(45deg, #ffb6c1, #ffcba4); }
+            100% { background: linear-gradient(45deg, #ffcba4, #ffb6c1); }
+        }
+
+        .text-container {
+            position: relative;
+            z-index: 2;
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: #8b0000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 80%;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h1>Szeretlek, cicám!</h1>
+        <p>
+            Távol vagy, mégis közel,<br>
+            Szívem érzi, hogy jössz egyszer.<br>
+            Csillagok is összesúgnak,<br>
+            Szívünk örökké együtt dobban.<br><br>
+            Hiányod, mint lágy fuvallat,<br>
+            Mégis érzem ölelésed.<br>
+            Minden percben várlak vissza,<br>
+            Veled teljes a világom.<br><br>
+            Szívem csak hozzád húz,<br>
+            Szerelmünk fénylő csillag.<br>
+            Kéz a kézben, bárhol is,<br>
+            Örökké együtt, édes szívem.
+        </p>
+        <div class="buttons">
+            <button class="btn" onclick="playMusic()">▶ Включити музику</button>
+            <button class="btn" onclick="pauseMusic()">⏸ Зупинити музику</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Ваш браузер не підтримує аудіо.
+    </audio>
+
+    <script>
+        let audio = document.getElementById("bg-music");
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            audio.play().catch(() => {
+                console.log("Автозапуск заблоковано, потрібно натиснути кнопку.");
+            });
+        });
+
+        function playMusic() {
+            audio.play();
+        }
+
+        function pauseMusic() {
+            audio.pause();
+        }
+    </script>
+</body>
+</html>
